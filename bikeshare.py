@@ -38,7 +38,7 @@ def get_filters():
 
     # TO DO: get user input for month (all, january, february, ... , june)
 
-    month = input('For which month would you like to see the data? (all, january, february, ... , june): ').lower()
+    month = input('For which month would you like to see the data? (all, january, february, march ... , june): ').lower()
 
 
     # while loop to handle invalid inputs
