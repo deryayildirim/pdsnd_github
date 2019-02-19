@@ -3,9 +3,6 @@ import time
 import numpy as np
 import pandas as pd
 
-
-
-
 CITY_DATA = { 'chi': 'chicago.csv',
               'ny': 'new_york_city.csv',
               'wa': 'washington.csv' }
@@ -33,27 +30,27 @@ def get_filters():
     # TO DO:get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
     city = input("For which city do you like to see the data? CHI (Chicago), NY (New York), or WA (Washington)?: ").lower()
-    
-    # while loop to handle invalid inputs 
+
+    # while loop to handle invalid inputs
 
     while city not in city_list:
         city = input('Please enter a valid city name (CHI, NY, WA): ').lower()
-    
+
     # TO DO: get user input for month (all, january, february, ... , june)
 
-    month = input('For which month would you like to see the data? (all, january, february, ... , june): ').lower()
-    
-       
-    # while loop to handle invalid inputs  
+    month = input('For which month would you like to see the data? (all, january, february, march ... , june): ').lower()
+
+
+    # while loop to handle invalid inputs
 
     while month not in month_list:
         month = input('Please enter a valid month name (all, january, february, ... , june): ').lower()
 
-    
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
 
     day = input('For which day of the week would you like to see the data? (all, monday, tuesday, ... sunday): ').lower()
-    
+
     # while loop to handle invalid user input for day name
 
     while day not in day_list:
@@ -82,15 +79,15 @@ def load_data(city, month, day):
 
     df = df.sort_values(["Start Time"])
 
-    
-    
+
+
    # ask user if they would like to see 5 line of raw data
-    
+
     print('\nWould you like to see the first five lines of raw data? Please enter Yes or No')
 
     zaehlerVar = 5
-    
-    while True: 
+
+    while True:
         answer_raw = input()
         if answer_raw.lower() == 'yes':
             print(df.iloc[zaehlerVar - 5:zaehlerVar].sort_values(["Start Time"]))
@@ -98,7 +95,7 @@ def load_data(city, month, day):
             print('\nWould you like to see the next 5 selected raw data? Enter yes or no.')
             if answer_raw.lower() =='yes':
                 zaehlerVar += 5
-            
+
         if answer_raw.lower() != 'yes':
             print(df)
             break
@@ -126,7 +123,6 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-
 
     return df
 
@@ -176,7 +172,7 @@ def station_stats(df):
 
     df['Start and End'] = '(Start) ' + df['Start Station'] + ' (End) ' + df['End Station'] # create a new column to display the combination of  start  and end stations
 
-    combi = df['Start and End'].value_counts().index[0] 
+    combi = df['Start and End'].value_counts().index[0]
     occurances = df['Start and End'].value_counts().iloc[0]
     print('Trip: {} occurances of {}'.format(occurances, combi))
 
@@ -193,7 +189,7 @@ def trip_duration_stats(df):
     # TO DO: display total travel time
 
     df['TTT'] = df['End Time'] - df['Start Time']
-    total_travel_time = df['TTT'].sum() 
+    total_travel_time = df['TTT'].sum()
 
     print('Total Travel Time = ', total_travel_time)
 
@@ -217,29 +213,25 @@ def user_stats(df):
 
     print('User Types:\n',df['User Type'].value_counts())
 
-    print()
 
+    # TO DO: Display counts of gender
 
-    # TO DO: Display counts of gender 
-    
-    # Since the gender data is only available for NYC and Chicago, we need to specify an exception to handle 
+    # Since the gender data is only available for NYC and Chicago, we need to specify an exception to handle
     # KeyError that may occur when user want to see Washington results
-    
+
     try:
         df['Gender'].value_counts()
         print('Gender:\n',df['Gender'].value_counts())
-    
+
     except KeyError:
         if CITY_DATA == 'Washington'.lower():
             pass
         print("Not available for Washington.")
-        
-    print()
 
 
     # TO DO: Display earliest, most recent, and most common year of birth
-    
-    # Since the birth data is only available for NYC and Chicago, we need to specify an exception to handle 
+
+    # Since the birth data is only available for NYC and Chicago, we need to specify an exception to handle
     # KeyError for  Washington
 
     try:
@@ -253,14 +245,14 @@ def user_stats(df):
         age = current_year - df['Birth Year'].max()
         print('Most Recent Year of Birth: ' + str(int(age)))
         print()
-        
+
     except KeyError:
         if CITY_DATA == 'Washington'.lower():
             pass
         print("Not available for Washington.")
-        
+
     print()
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
