@@ -1,15 +1,20 @@
 ### Date created
-Include the date you created this project and README file.
+February 19, 2019
 
 ### Project Title
-Replace the Project Title
+US Bikeshare Data Analysis with Python
 
 ### Description
-Describe what your project is about and what it does
+This project aims to analyse and compare bike share system usage patterns between three large cities: Chicago, New York City, and Washington.
+
 
 ### Files used
-Include the files used
+- chicago.csv
+- new_york_city.csv
+- washington.csv
+- bikeshare.py
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
+- **docs.python.org*: https://docs.python.org/3/tutorial/index.html
+- **stackoverflow*: https://stackoverflow.com/questions/31593201/pandas-iloc-vs-ix-vs-loc-explanation-how-are-they-different
