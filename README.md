@@ -16,5 +16,5 @@ This project aims to analyse and compare bike share system usage patterns betwee
 
 ### Credits
 
-- **docs.python.org*: https://docs.python.org/3/tutorial/index.html
-- **stackoverflow*: https://stackoverflow.com/questions/31593201/pandas-iloc-vs-ix-vs-loc-explanation-how-are-they-different
+- *docs.python.org*: https://docs.python.org/3/tutorial/index.html
+- *stackoverflow*: https://stackoverflow.com/questions/31593201/pandas-iloc-vs-ix-vs-loc-explanation-how-are-they-different
