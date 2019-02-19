@@ -13,6 +13,12 @@ The following **softwares** are used to accomplish this project:
 - Terminal
 - Anaconda
 
+The following **packages** are used to analyse the data :
+
+- Pandas
+- NumPy
+- Date Time
+
 ### Files used
 - chicago.csv
 - new_york_city.csv
